@@ -1,0 +1,26 @@
+
+<div id="leftbar-wrap" class="no-show" ng-controller="leftbarCtrl" ng-init="getList()">
+    <ul id="leftbar">
+        <div class="team-logo">
+            Web4Team
+        </div>
+
+        <li class="calendar">calendar</li>
+        <li class="category" ng-click="subNavShow = !subNavShow">category</li>
+        <ul ng-show="subNavShow">
+            <li ng-repeat="item in list" ng-bind="item.title"></li>
+        </ul>
+        <li class="">Mailbox</li>
+        <li class="">Notification</li>
+        <li class="">My Account</li>
+
+        <div class="midas">
+            마이다스 IT
+        </div>
+
+    </ul>
+
+
+
+
+</div>

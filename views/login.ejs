@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="web4team-login">
+<head>
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="/js/angular-login.js"></script>
+</head>
+<body>
+<div id="wrap" ng-controller="loginCtrl" ng-init="init();">
+
+    <div id="login-wrap">
+        <div id="login">
+            <div class="midas-logo"></div>
+            <form class="login-form" action="" ng-show="showLoginForm">
+                <p>Login</p>
+                <div><label for="">EMAIL</label>
+                    <input ng-model="loginInfo.email" type="text" placeholder="이메일을 입력하세요.">
+                </div>
+                <div>
+                    <label for="">PASSWORD</label>
+                    <input ng-model="loginInfo.password" type="password" placeholder="비밀번호를 입력하세요.">
+                </div>
+
+                <button class="btn-gray btn-login" ng-click="login()" type="button">
+                    Login
+                </button>
+
+                <button class="btn-gray btn-register" ng-click="showRegister()" type="button">
+                    Register
+                </button>
+            </form>
+
+            <form class="register-form" action="" ng-show="!showLoginForm">
+                <p>Register</p>
+                <div><label for="">EMAIL</label>
+                    <input ng-model="regInfo.email" id="register-email" type="email" placeholder="사용할 이메일를 입력하세요.">
+                </div>
+                <div>
+                    <label for="">EMAIL (RE)</label>
+                    <input ng-model="regInfo.email" id="register-password" type="email" placeholder="이메일을 다시 입력하세요.">
+                </div>
+                <div>
+                    <label for="">PASSWORD</label>
+                    <input ng-model="regInfo.password" id="register-password-repeat" type="password" placeholder="비밀번호 입력.">
+                </div>
+                <div>
+                    <label for="">NAME</label>
+                    <input ng-model="regInfo.name" id="register-name" type="text" placeholder="이름">
+                </div>
+
+                <button class="btn-gray btn-register" ng-click="register()" type="button">
+                    Register
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div id="main">
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
+
+

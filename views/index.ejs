@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app="web4team">
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src="/js/vendor/jquery.min.js"></script>
+    <script src='/js/vendor/jquery.calendar.min.js'></script>
+    <link rel='stylesheet' href='/css/jquery.calendar.css' />
+    <script src="/js/vendor/require.js" data-main="/js/main"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="/js/angular.js"></script>
+
+
+    <style type="text/css">
+
+        #date_head{
+            position: absolute;
+            right: 200px;
+            margin: auto;
+            text-align: center;
+            left: 200px;
+        }
+
+        #controls{
+            position: absolute;
+            top: 30px;
+            height: 23px;
+            left: 50px;
+            right: 50px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #controls ol{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #B3B3B3;
+            border-radius: 2px;
+            overflow: hidden;
+            -moz-background-clip: padding;     /* Firefox 3.6 */
+            -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+            background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+            height: 21px;
+        }
+
+        #controls ol li{
+            display: inline-block;
+            float: left;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            background: #CACACA url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADlJREFUeNp0y6sNACAAxNALBs0ArM9QbMEnJKiD4jEvNZXtEiRVEBg2LJgwoEN7pbtlSBBBX44AAwARiCdWebcYiAAAAABJRU5ErkJggg==) repeat-x 0 0; /* Old browsers */
+            text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px;
+            color: #333;
+        }
+
+        #controls ol li:hover{
+            background-color: #C0C0C0;
+            color: #000;
+        }
+
+        #controls ol li.on{
+            background: #C4C4C4;
+            color: #555;
+        }
+
+        #controls ol li button{
+            margin: 0;
+            background: transparent;
+            border: 0;
+            border-left: 1px solid #B3B3B3;
+            height: 100%;
+            padding: 0 10px;
+            color: inherit;
+            text-shadow: inherit;
+            cursor: pointer;
+        }
+
+        #controls ol li:first-child button{
+            border-left: 0;
+        }
+
+        #cals{
+            float: left;
+        }
+
+        #nav{
+            float: right;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="session">
+        <p><%= member_id %></p>
+        <p><%= member_name %></p>
+    </div>
+    <div id="wrap">
+        <div class="row">
+            <% include content/leftbar.ejs %>
+
+            <div id="main">
+                <% include content/login.ejs %>
+                <% include content/calendar.ejs %>
+                <% include content/todo.ejs %>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            console.log(1);
+            // page is now ready, initialize the calendar...
+//            $('#full-calendar').cal();
+
+            $calendar = $('#calendar').cal({
+
+                monthstodisplay	: 1,
+
+                allowmove		: true,
+                allowselect		: true,
+                allowremove		: true,
+                allownotesedit	: true,
+
+                eventselect : function( uid ){
+                    console.log( 'Selected event: '+uid );
+                },
+
+                eventremove : function( uid ){
+                    console.log( 'Removed event: '+uid );
+                },
+
+                eventnotesedit : function( uid ){
+                    console.log( 'Edited Notes for event: '+uid );
+                },
+
+                events :
+                        [
+                        {
+                            uid		: "uid",
+                            begins	: new Date(),
+                            ends	: new Date(new Date().getTime() + 24 * 60 * 60 * 10000),
+                            notes	: "note",
+                            color	: "#ddd"
+
+                        }
+                        ]
+            });
+
+//            $calendar.cal( 'option','startdate', newstart );
+
+        });
+    </script>
+
+
+</body>
+</html>
+
+

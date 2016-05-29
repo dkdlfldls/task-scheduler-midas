@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="web4team">
+<head>
+    <link rel='stylesheet' href='/css/style.css' />
+
+
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+    <!-- jquery, moment, and angular have to get included before fullcalendar -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+    <!-- Angular Material Library -->
+
+    <script type="text/javascript" src="/js/angular.js"></script>
+</head>
+<body>
+<div id="wrap" >
+
+    <div class="row">
+        <div id="leftbar-wrap" class="" ng-controller="leftbarCtrl" ng-init="getList()">
+            <ul id="leftbar">
+                <div class="team-logo">
+                    Web4Team
+                </div>
+                <li class="calendar">calendar</li>
+                <li class="category" ng-click="subNavShow = !subNavShow">
+                    category
+                </li>
+                <ul class="category-list" ng-show="subNavShow">
+                    <li class="entry" ng-repeat="item in list" ng-bind="item.title" ng-click="goTodo(item.category_id)"></li>
+                </ul>
+                <li class="">Mailbox</li>
+                <li class="">Notification</li>
+                <li class="">My Account</li>
+
+                <div class="midas">
+                    마이다스 IT
+                </div>
+
+            </ul>
+        </div>
+
+
+
+        <div id="main">
+
+           <div ng-controller="todoCtrl" ng-show="modalShow">
+            <div id="modal-bg"></div>
+            <div id="modal" >
+                <form action="">
+                    <label class="title" for="">To Do 입력</label>
+                    <input type="text" class="" placeholder="일정을 입력하세요.">
+                </form>
+                <button type="button">입력</button>
+            </div>
+           </div>
+            <!--topbar-->
+            <div class="topbar">
+                <div class="left">
+                    <p class="home">
+                        <i class="icon-home3"></i>
+                    </p>
+                    <form class="search" action="">
+                        <input type="text" placeholder="검색어를 입력하세요.">
+                    </form>
+                </div>
+
+                <div class="right">
+                    <p class="welcome">
+                        <span class="">{{userName}}</span>님 환영합니다.
+
+                    </p>
+                    <p class="today">
+                        오늘은 2016년 05월 29일입니다.
+                    <div class="menu">
+                        <i class="icon-bell"></i>
+                        <i class="icon-envelop"></i>
+                        <p>logout</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <ng-view></ng-view>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+

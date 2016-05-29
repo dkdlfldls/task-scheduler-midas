@@ -1,0 +1,72 @@
+
+<div id="todo-wrap" ng-init="init()">
+    <div class="title">
+        <p class="name">To Do</p>
+        <p class="desc">당신이 계획하고 있는 구체적인 일들입니다.</p>
+    </div>
+    <div id="todo">
+        <div class="todo">
+            <div class="top">
+                <p class="title">Todo</p>
+                <p class="desc">해야 할 일</p>
+            </div>
+            <ul class="list">
+                <li class="skel" ng-repeat="item in todo.todo">
+                    <p class="title">{{item.title}}</p>
+                    <!--<p class="content">{{item.content}}</p>-->
+
+                    <!--<p>{{item.reg_time}}</p>-->
+                    <p class="start_time">{{item.start_time}}</p>
+                    <div class="menu">
+                        <button type="button" ng-click="setInProgress(item)">진행중</button>
+                        <button type="button" ng-click="delTodo(item)">삭제</button>
+                    </div>
+                    <!--<p class="end_time">{{item.end_time}}</p>-->
+                    <!--<p>{{item.todo_id}}</p>-->
+                </li>
+            </ul>
+        </div>
+        <div class="progress">
+            <div class="top">
+                <p class="title">Progress</p>
+                <p class="desc">진행중인 일</p>
+            </div>
+            <ul class="list">
+                <li class="skel" ng-repeat="item in todo.in_progress">
+                    <p>{{item.title}}</p>
+                    <!--<p>{{item.reg_time}}</p>-->
+                    <p>{{item.start_time}}</p>
+                    <p>{{item.end_time}}</p>
+                    <div class="menu">
+                        <button type="button" ng-click="setInProgress(item)">시행 전</button>
+                        <button type="button" ng-click="setInProgress(item)">완료</button>
+                        <button type="button">삭제</button>
+                    </div>
+                    <!--<p>{{item.todo_id}}</p>-->
+                </li>
+            </ul>
+        </div>
+        <div class="done">
+            <div class="top">
+                <p class="title">Completed</p>
+                <p class="desc">완료한 일</p>
+            </div>
+            <ul class="list">
+                <li class="skel" ng-repeat="item in todo.done">
+                    <p>{{item.title}}</p>
+                    <!--<p>{{item.reg_time}}</p>-->
+                    <p>{{item.start_time}}</p>
+                    <p>{{item.end_time}}</p>
+                    <div class="menu">
+                        <button type="button" ng-click="setInProgress(item)">진행중</button>
+                        <button type="button">삭제</button>
+                    </div>
+                    <!--<p>{{item.todo_id}}</p>-->
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+</div>

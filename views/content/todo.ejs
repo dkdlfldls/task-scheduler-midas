@@ -1,0 +1,60 @@
+
+<div id="todo-wrap" class="no-show">
+
+    <% include topbar.ejs %>
+
+    <div class="title">
+        <p class="name">To Do</p>
+        <p class="desc">당신이 계획하고 있는 구체적인 일들입니다.</p>
+    </div>
+    <div id="todo">
+        <div class="todo">
+            <div class="top">
+                <p class="title">Todo</p>
+                <p class="desc">해야 할 일</p>
+            </div>
+            <ul class="list">
+                <li class="todo-skel">
+                    <p>{{todo.title}}</p>
+                    <p>{{todo.content}}</p>
+                    <p>{{todo.register-date}}</p>
+                    <p>{{todo.author}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="progress">
+            <div class="top">
+                <p class="title">Progress</p>
+                <p class="desc">진행중인 일</p>
+            </div>
+            <ul class="list">
+                <li class="todo-skel">
+                    <p>{{todo.title}}</p>
+                    <p>{{todo.content}}</p>
+                    <p>{{todo.register-date}}</p>
+                    <p>{{todo.author}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="done">
+            <div class="top">
+                <p class="title">Completed</p>
+                <p class="desc">완료한 일</p>
+            </div>
+            <ul class="list">
+                <li class="todo-skel">
+                    <p>{{todo.title}}</p>
+                    <p>{{todo.content}}</p>
+                    <p>{{todo.register-date}}</p>
+                    <p>{{todo.author}}</p>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
